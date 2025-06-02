@@ -1,0 +1,1 @@
+<?php /**PATH /opt/lampp/htdocs/blog_laravel/resources/views/logout.blade.php ENDPATH**/ ?>

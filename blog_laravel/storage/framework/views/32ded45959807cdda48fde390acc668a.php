@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <!--Custom Stylesheet-->
+    <link rel="stylesheet" href="<?php echo e((asset('css/app.css'))); ?>">
+    <!--Iconscout-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!--Flaticon-->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-chubby/css/uicons-regular-chubby.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+<body>
+    <!-- START OF NAV-->
+    <nav>
+        <div class="container nav__container">
+            <a href="/" class="nav__logo">JG</a>
+            <ul class="nav__items">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <!-- só tem acesso aqui se estiver logado -->
+                <?php if(auth()->guard()->check()): ?>
+                    <li class="nav__profile">
+                    <div class="avatar">
+                        <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <img src="<?php echo e(asset('images/avatars/' . $user->avatar)); ?>">
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </div>
+                    <ul>
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/admin">Dashboard</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+                <?php else: ?>
+                <li><a href="/signin">Sign In</a></li>
+            </ul>
+            <button id="open__nav-btn"><i class="uis uis-bars"></i></button>
+            <button id="close__nav-btn"><i class="uis uis-multiply"></i></i></button>
+        </div>
+        <?php endif; ?>
+    </nav>
+    <!-- END OF NAV --><?php /**PATH /opt/lampp/htdocs/blog_laravel/resources/views////partials/header.blade.php ENDPATH**/ ?>
