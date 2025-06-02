@@ -127,4 +127,4 @@ Para começar a desenvolver:
 
 ---
 
-Desenvolvido com ❤️ por Joana Gabriel
+Desenvolvido por Joana Gabriel
